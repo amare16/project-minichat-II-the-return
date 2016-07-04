@@ -1,11 +1,14 @@
 <?php
 // Connexion à la base de données
 /* TODO */
-
-if ($_POST) {
+$bdd = new PDO("mysql:host=localhost;dbname=project_mini_chat
+;charset=utf8", "root", "simplonco");
+if (isset($_POST[$pseudo]) AND isset($_POST[$message]) AND !empty($_POST[$pseudo]) AND !empty($_POST[$message])) {
     // Insertion du message à l'aide d'une requête préparée
     /* TODO */
-}
+    $pseudo = htmlspecialchars($_POST[$pseudo];
+    $message = htmlspecialchars($_POST[$message]);
+    $insertmsg = $bdd -> prepare('INSERT INTO mini_chat(pseudo, message) VALUES(?, ?)');
 
 ?>
 <!DOCTYPE>
@@ -64,7 +67,8 @@ if ($_POST) {
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <!-- Material Design Light -->
-    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
 </body>
 
 </html>
